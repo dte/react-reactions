@@ -29,23 +29,23 @@ export const SlackSelector = ({
   return (
     <div style={ styles.menu }>
       <SlackSelectorCSS
-        { ...translations }
+        translations={ translations }
       />
       <SlackSelectorHeader
         tabs={ tabs }
         active={ active }
-        { ...translations }
+        translations={ translations }
       />
       <SlackSelectorItems
         scrollHeight={ scrollHeight }
         removeEmojis={ removeEmojis }
         frequent={ frequent }
         onSelect={ onSelect }
-        { ...translations }
+        translations={ translations }
       />
       <SlackSelectorFooter
         onSelect={ onSelect }
-        { ...translations }
+        translations={ translations }
       />
     </div>
   )
@@ -60,16 +60,16 @@ SlackSelector.defaultProps = {
   translations: {
     footer: 'Handy Reactions',
     sections: {
-	          'mine': 'Frequently Used',
-	          'people': 'People',
-	          'nature': 'Nature',
-	          'food-and-drink': 'Food & Drink',
-	          'activity': 'Activity',
-	          'travel-and-places': 'Travel & Places',
-	          'objects': 'Objects',
-	          'symbols': 'Symbols',
-	          'flags': 'Flags',
-	      },
+	                'mine': 'Frequently Used',
+	                'people': 'People',
+	                'nature': 'Nature',
+	                'food-and-drink': 'Food & Drink',
+	                'activity': 'Activity',
+	                'travel-and-places': 'Travel & Places',
+	                'objects': 'Objects',
+	                'symbols': 'Symbols',
+	                'flags': 'Flags',
+	          },
   },
   tabs: [{
     icon: '',

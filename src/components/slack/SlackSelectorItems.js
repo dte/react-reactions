@@ -26,7 +26,7 @@ export const SlackSelectorItems = ({ scrollHeight, frequent, onSelect, removeEmo
       <div style={ styles.wrap } className="frame">
         { frequent ? (
           <SlackSelectorSection
-            translations={translations}
+            translations={ translations }
             key="mine"
             slug="mine"
             emojis={ frequent }
@@ -36,7 +36,7 @@ export const SlackSelectorItems = ({ scrollHeight, frequent, onSelect, removeEmo
         { _.map(emoji, (group, slug) => {
           return (
             <SlackSelectorSection
-              translations={translations}
+              translations={ translations }
               key={ slug }
               slug={ slug }
               emojis={ _.without(group, ...removeEmojis) }
