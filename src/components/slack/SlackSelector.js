@@ -41,7 +41,6 @@ export const SlackSelector = ({
         removeEmojis={ removeEmojis }
         frequent={ frequent }
         onSelect={ onSelect }
-        { ...defaultTranslations }
         { ...translations }
       />
       <SlackSelectorFooter
@@ -60,17 +59,17 @@ SlackSelector.defaultProps = {
   frequent: ['👍', '🐉', '🙌', '🗿', '😊', '🐬', '😹', '👻', '🚀', '🚁', '🏇', '🇨🇦'],
   translations: {
     footer: 'Handy Reactions',
-    sections:  {
-	    'mine': 'Frequently Used',
-	    'people': 'People',
-	    'nature': 'Nature',
-	    'food-and-drink': 'Food & Drink',
-	    'activity': 'Activity',
-	    'travel-and-places': 'Travel & Places',
-	    'objects': 'Objects',
-	    'symbols': 'Symbols',
-	    'flags': 'Flags'
-	  }
+    sections: {
+	          'mine': 'Frequently Used',
+	          'people': 'People',
+	          'nature': 'Nature',
+	          'food-and-drink': 'Food & Drink',
+	          'activity': 'Activity',
+	          'travel-and-places': 'Travel & Places',
+	          'objects': 'Objects',
+	          'symbols': 'Symbols',
+	          'flags': 'Flags',
+	      },
   },
   tabs: [{
     icon: '',
