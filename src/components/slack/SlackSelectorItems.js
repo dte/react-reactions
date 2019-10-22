@@ -5,7 +5,7 @@ import emoji from 'emoji-as-array'
 
 import SlackSelectorSection from './SlackSelectorSection'
 
-export const SlackSelectorItems = ({ scrollHeight, frequent, onSelect, removeEmojis }) => {
+export const SlackSelectorItems = ({ scrollHeight, frequent, onSelect, removeEmojis, translations }) => {
   const styles = reactCSS({
     'default': {
       sections: {
@@ -26,6 +26,7 @@ export const SlackSelectorItems = ({ scrollHeight, frequent, onSelect, removeEmo
       <div style={ styles.wrap } className="frame">
         { frequent ? (
           <SlackSelectorSection
+            translations={translations}
             key="mine"
             slug="mine"
             emojis={ frequent }
@@ -35,6 +36,7 @@ export const SlackSelectorItems = ({ scrollHeight, frequent, onSelect, removeEmo
         { _.map(emoji, (group, slug) => {
           return (
             <SlackSelectorSection
+              translations={translations}
               key={ slug }
               slug={ slug }
               emojis={ _.without(group, ...removeEmojis) }

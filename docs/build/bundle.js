@@ -15445,7 +15445,10 @@
 	});
 	var emojiColors = exports.emojiColors = ['#b7e887', '#b5e0fe', '#f9ef67', '#f3c1fd', '#ffe1ae', '#e0dfff'];
 
-	var sectionSlugToName = exports.sectionSlugToName = function sectionSlugToName(name) {
+	var sectionSlugToName = exports.sectionSlugToName = function sectionSlugToName(name, translations) {
+	  if(translations){
+		return translations[name];
+	  }
 	  return {
 	    'mine': 'Frequently Used',
 	    'people': 'People',

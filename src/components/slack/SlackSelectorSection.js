@@ -5,7 +5,7 @@ import { emojiColors, sectionSlugToName } from '../../helpers/slack'
 
 import SlackSelectorSectionEmoji from './SlackSelectorSectionEmoji'
 
-export const SlackSelectorSection = ({ slug, emojis, onSelect }) => {
+export const SlackSelectorSection = ({ slug, emojis, onSelect, translations }) => {
   const styles = reactCSS({
     'default': {
       section: {
@@ -27,7 +27,7 @@ export const SlackSelectorSection = ({ slug, emojis, onSelect }) => {
 
   return (
     <div style={ styles.section } id={ slug }>
-      <div style={ styles.title }>{ sectionSlugToName(slug) }</div>
+      <div style={ styles.title }>{ sectionSlugToName(slug, translations.sections) }</div>
       <div style={ styles.emojis }>
         { _.map(emojis, (emoji, i) => {
           return (

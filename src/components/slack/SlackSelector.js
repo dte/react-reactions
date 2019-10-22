@@ -6,7 +6,9 @@ import SlackSelectorHeader from './SlackSelectorHeader'
 import SlackSelectorItems from './SlackSelectorItems'
 import SlackSelectorFooter from './SlackSelectorFooter'
 
-export const SlackSelector = ({ active, scrollHeight, frequent, removeEmojis, onSelect }) => {
+export const SlackSelector = ({
+  active, scrollHeight, frequent, removeEmojis, onSelect, translations, tabs,
+}) => {
   const styles = reactCSS({
     'default': {
       menu: {
@@ -23,17 +25,29 @@ export const SlackSelector = ({ active, scrollHeight, frequent, removeEmojis, on
     },
   })
 
+
   return (
     <div style={ styles.menu }>
-      <SlackSelectorCSS />
-      <SlackSelectorHeader active={ active } />
+      <SlackSelectorCSS
+        { ...translations }
+      />
+      <SlackSelectorHeader
+        tabs={ tabs }
+        active={ active }
+        { ...translations }
+      />
       <SlackSelectorItems
         scrollHeight={ scrollHeight }
         removeEmojis={ removeEmojis }
         frequent={ frequent }
         onSelect={ onSelect }
+        { ...defaultTranslations }
+        { ...translations }
       />
-      <SlackSelectorFooter onSelect={ onSelect } />
+      <SlackSelectorFooter
+        onSelect={ onSelect }
+        { ...translations }
+      />
     </div>
   )
 }
@@ -42,8 +56,50 @@ SlackSelector.defaultProps = {
   active: 'mine',
   scrollHeight: '270px',
   removeEmojis: ['🙂', '🙃', '☺️', '🤑', '🤓', '🤗', '🙄', '🤔', '🙁', '☹️', '🤐', '🤒',
-                 '🤕', '🤖'],
+    '🤕', '🤖'],
   frequent: ['👍', '🐉', '🙌', '🗿', '😊', '🐬', '😹', '👻', '🚀', '🚁', '🏇', '🇨🇦'],
+  translations: {
+    footer: 'Handy Reactions',
+    sections:  {
+	    'mine': 'Frequently Used',
+	    'people': 'People',
+	    'nature': 'Nature',
+	    'food-and-drink': 'Food & Drink',
+	    'activity': 'Activity',
+	    'travel-and-places': 'Travel & Places',
+	    'objects': 'Objects',
+	    'symbols': 'Symbols',
+	    'flags': 'Flags'
+	  }
+  },
+  tabs: [{
+    icon: '',
+    id: 'mine',
+  }, {
+    icon: '',
+    id: 'people',
+  }, {
+    icon: '',
+    id: 'nature',
+  }, {
+    icon: '',
+    id: 'food-and-drink',
+  }, {
+    icon: '',
+    id: 'activity',
+  }, {
+    icon: '',
+    id: 'travel-and-places',
+  }, {
+    icon: '',
+    id: 'objects',
+  }, {
+    icon: '',
+    id: 'symbols',
+  }, {
+    icon: '',
+    id: 'flags',
+  }],
 }
 
 export default SlackSelector
