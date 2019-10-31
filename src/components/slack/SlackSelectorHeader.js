@@ -15,11 +15,11 @@ export const SlackSelectorHeader = ({ tabs, active }) => {
     },
   })
 
-  const handleClick = id => document.getElementById(id).scrollIntoView(false)
+  const handleClick = id => document.getElementById(id).scrollIntoView(true)
 
   return (
     <div style={ styles.header }>
-      { _.map(tabs, (tab) => {
+      { _.map(tabs, tab => {
         return (
           <SlackSelectorHeaderTab
             icon={ tab.icon }
@@ -33,6 +33,5 @@ export const SlackSelectorHeader = ({ tabs, active }) => {
     </div>
   )
 }
-
 
 export default SlackSelectorHeader

@@ -1,5 +1,5 @@
 {
-  "name": "react-reactions",
+  "name": "react-reactions-local",
   "version": "0.1.3",
   "description": "Reaction pickers and counters from Slack, Pokemon, Github, Facebook & Youtube",
   "main": "lib/index.js",
