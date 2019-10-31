@@ -1,4 +1,4 @@
-import Reactfrom 'react'
+import React from 'react'
 
 import SlackSelectorCSS from './SlackSelectorCSS'
 import SlackSelectorHeader from './SlackSelectorHeader'
