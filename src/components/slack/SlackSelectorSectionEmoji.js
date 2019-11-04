@@ -21,7 +21,7 @@ export const SlackSelectorSectionEmoji = ({ onSelect, emoji, hoverColor }) => {
           borderRadius: '6px',
           cursor: 'pointer',
 
-          // transition: 'background .15s ease-out 50ms',
+          transition: 'background .15s ease-out 50ms',
         },
       }}
       onClick={ handleClick }
