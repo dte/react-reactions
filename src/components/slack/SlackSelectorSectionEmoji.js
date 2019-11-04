@@ -10,6 +10,7 @@ export const SlackSelectorSectionEmoji = ({ onSelect, emoji, hoverColor }) => {
   return (
     <div
       className="emoji"
+      id={ emoji }
       style={{
         ...{
           width: '36px',
@@ -26,7 +27,7 @@ export const SlackSelectorSectionEmoji = ({ onSelect, emoji, hoverColor }) => {
       }}
       onClick={ handleClick }
     >
-      <style>{ `.emoji:hover{background: ${ hoverColor }}` }</style>
+      <style>{ `#${ emoji }:hover{background: ${ hoverColor }}  ` }</style>
       <div
         style={{
           fontSize: '22px',
