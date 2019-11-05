@@ -53,7 +53,9 @@ export const SlackCounter = ({ hover, counters, user, onSelect, onAdd }) => {
         )
       }) }
       <div style={ styles.add } onClick={ onAdd }>
-        <SlackCounterGroup />
+        <SlackCounterGroup
+          emoji={ <div className="fa fa-smile-o comment-actions-item__react" /> }
+        />
       </div>
     </div>
   )

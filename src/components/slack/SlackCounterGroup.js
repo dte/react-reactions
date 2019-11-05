@@ -84,10 +84,7 @@ export const SlackCounterGroup = ({
 
   return (
     <div style={ styles.group } onClick={ handleClick }>
-      <span style={ styles.emoji }>
-        { <div className="fa fa-smile-o comment-actions-item__react" /> }
-      </span>{ ' ' }
-      { count }
+      <span style={ styles.emoji }>{ emoji }</span> { count }
       { names ? <div style={ styles.tooltip }>{ listOfNames(names) }</div> : null }
     </div>
   )
