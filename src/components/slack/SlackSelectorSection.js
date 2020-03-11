@@ -1,19 +1,16 @@
-import React, { useState, useEffect, memo } from 'react'
+import React from 'react'
 import reactCSS from 'reactcss'
+import _ from 'lodash'
 import { emojiColors, sectionSlugToName } from '../../helpers/slack'
 
 import SlackSelectorSectionEmoji from './SlackSelectorSectionEmoji'
 
-export const SlackSelectorSection = ({
-  slug,
-  emojis,
-  onSelect,
-  translations,
-}) => {
-  const [items, setItems] = useState(null)
+export const SlackSelectorSection = ({ slug, emojis, onSelect }) => {
   const styles = reactCSS({
     'default': {
-      section: {},
+      section: {
+
+      },
       emojis: {
         display: 'flex',
         flexWrap: 'wrap',
@@ -27,51 +24,24 @@ export const SlackSelectorSection = ({
       },
     },
   })
-  useEffect(() => {
-    setItems(
-      <div style={ styles.section } id={ slug }>
-        <div style={ styles.title }>
-          { sectionSlugToName(slug, translations.sections) }
-        </div>
-        <div style={ styles.emojis }>
-          { emojis.map((emoji, i) => {
-            return (
-              <SlackSelectorSectionEmoji
-                key={ i + emoji }
-                hoverColor={ emojiColors[i % emojiColors.length] }
-                emoji={ emoji }
-                onSelect={ onSelect }
-              />
-            )
-          }) }
-        </div>
-      </div>,
-    )
-  }, [])
 
-  if (!items) {
-    return (
-      <div style={ styles.section } id={ slug }>
-        <div style={ styles.title }>
-          { sectionSlugToName(slug, translations.sections) }
-        </div>
-        <div style={ styles.emojis }>
-          { emojis.map((emoji, i) => {
-            return (
-              <SlackSelectorSectionEmoji
-                key={ i + emoji }
-                hoverColor={ emojiColors[i % emojiColors.length] }
-                emoji={ emoji }
-                onSelect={ onSelect }
-              />
-            )
-          }) }
-        </div>
+  return (
+    <div style={ styles.section } id={ slug }>
+      <div style={ styles.title }>{ sectionSlugToName(slug) }</div>
+      <div style={ styles.emojis }>
+        { _.map(emojis, (emoji, i) => {
+          return (
+            <SlackSelectorSectionEmoji
+              key={ i }
+              hoverColor={ emojiColors[i % emojiColors.length] }
+              emoji={ emoji }
+              onSelect={ onSelect }
+            />
+          )
+        }) }
       </div>
-    )
-  }
-
-  return items
+    </div>
+  )
 }
 
-export default memo(SlackSelectorSection)
+export default SlackSelectorSection

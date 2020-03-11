@@ -15,11 +15,11 @@ export const SlackSelectorHeader = ({ tabs, active }) => {
     },
   })
 
-  const handleClick = id => document.getElementById(id).scrollIntoView(true)
+  const handleClick = (id) => document.getElementById(id).scrollIntoView(false)
 
   return (
     <div style={ styles.header }>
-      { _.map(tabs, tab => {
+      { _.map(tabs, (tab) => {
         return (
           <SlackSelectorHeaderTab
             icon={ tab.icon }
@@ -32,6 +32,37 @@ export const SlackSelectorHeader = ({ tabs, active }) => {
       }) }
     </div>
   )
+}
+
+SlackSelectorHeader.defaultProps = {
+  tabs: [{
+    icon: '',
+    id: 'mine',
+  }, {
+    icon: '',
+    id: 'people',
+  }, {
+    icon: '',
+    id: 'nature',
+  }, {
+    icon: '',
+    id: 'food-and-drink',
+  }, {
+    icon: '',
+    id: 'activity',
+  }, {
+    icon: '',
+    id: 'travel-and-places',
+  }, {
+    icon: '',
+    id: 'objects',
+  }, {
+    icon: '',
+    id: 'symbols',
+  }, {
+    icon: '',
+    id: 'flags',
+  }],
 }
 
 export default SlackSelectorHeader

@@ -3,7 +3,7 @@ import reactCSS from 'reactcss'
 
 import SlackSelectorSection from './SlackSelectorSection'
 
-export const SlackSelectorFooter = ({ onSelect, translations }) => {
+export const SlackSelectorFooter = ({ onSelect }) => {
   const styles = reactCSS({
     'default': {
       footer: {
@@ -28,12 +28,11 @@ export const SlackSelectorFooter = ({ onSelect, translations }) => {
   return (
     <div style={ styles.footer }>
       <div style={ styles.left }>
-        {translations.footer}
+        Handy Reactions
       </div>
       <div style={ styles.right }>
         <SlackSelectorSection
           onSelect={ onSelect }
-          translations={translations}
           emojis={ ['😀', '👍', '✅', '❤️', '👀'] }
         />
       </div>

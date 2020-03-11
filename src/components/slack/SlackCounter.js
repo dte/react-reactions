@@ -7,34 +7,32 @@ import _ from 'lodash'
 import SlackCounterGroup from './SlackCounterGroup'
 
 export const SlackCounter = ({ hover, counters, user, onSelect, onAdd }) => {
-  const styles = reactCSS(
-    {
-      'default': {
-        counter: {
-          display: 'flex',
-        },
-        add: {
-          cursor: 'pointer',
-          fontFamily: 'Slack',
-          paddingLeft: '8px',
-
-          opacity: '0',
-          transition: 'opacity 0.1s ease-in-out',
-        },
-        group: {
-          marginRight: '4px',
-        },
+  const styles = reactCSS({
+    'default': {
+      counter: {
+        display: 'flex',
       },
-      'hover': {
-        add: {
-          opacity: '1',
-        },
+      add: {
+        cursor: 'pointer',
+        fontFamily: 'Slack',
+        paddingLeft: '8px',
+
+        opacity: '0',
+        transition: 'opacity 0.1s ease-in-out',
+      },
+      group: {
+        marginRight: '4px',
       },
     },
-    { hover },
-  )
+    'hover': {
+      add: {
+        opacity: '1',
+      },
+    },
+  }, { hover })
 
   const groups = _.groupBy(counters, 'emoji')
+
 
   return (
     <div style={ styles.counter }>
@@ -53,9 +51,8 @@ export const SlackCounter = ({ hover, counters, user, onSelect, onAdd }) => {
         )
       }) }
       <div style={ styles.add } onClick={ onAdd }>
-        <SlackCounterGroup
-          emoji={ <div className="fa fa-smile-o comment-actions-item__react" /> }
-        />
+
+        <SlackCounterGroup emoji={ '' } />
       </div>
     </div>
   )
