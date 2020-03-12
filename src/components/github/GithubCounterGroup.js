@@ -11,9 +11,9 @@ export const GithubCounterGroup = ({ hover, active, emoji, count, onSelect, name
         width: '35px',
         height: '20px',
         padding: '8px 15px',
-        borderRight: '1px solid #ddd',
+        borderRight: '1px solid #191f2c',
         fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica',
-        fontSize: '14px',
+        fontSize: '12px',
         color: '#3D76C2',
         fontWeight: '500',
         display: 'flex',
@@ -64,9 +64,14 @@ export const GithubCounterGroup = ({ hover, active, emoji, count, onSelect, name
   }
 
   return (
-    <div style={ styles.group } onClick={ handleClick }>
-      <span style={ styles.emoji }>{ emoji }</span> { count }
-      <div style={ styles.tooltip }>{ listOfNames(names) }</div>
+    <div style={ styles.group } className="github-counter-group" onClick={ handleClick }>
+      <span style={ styles.emoji } className="github-counter-group__emoji" >
+        { emoji }
+      </span>
+      { count }
+      <div style={ styles.tooltip } className="github-counter-group__tooltip">
+      { listOfNames(names) }
+      </div>
     </div>
   )
 }
